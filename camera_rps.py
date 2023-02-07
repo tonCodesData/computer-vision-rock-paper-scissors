@@ -14,19 +14,19 @@ def get_prediction():
     image_np = np.array(resized_frame)
     normalized_image = (image_np.astype(np.float32) / 127.0) - 1 # Normalize the image
     data[0] = normalized_image
-    
+    cv2.imshow('frame', frame)
     prediction = model.predict(data)
-
+    # ind = np.unravel_index(np.argmax(prediction, axis=None), prediction.shape)
+    # print(ind)
+    highest_idx = np.argmax(prediction) 
+    print(highest_idx)
+    # print(prediction[ind])
     choices = ["Rock", "Paper", "Scissors", "Nothing"]
-    highest_prob = 0
-    highest_idx = 0
-    for i in range(len(prediciton)): 
-        if prediction[i] > highest_prob:
-            highest_prob = prediction[i]
-            highest_idx = i
-    
     predicted_choice = choices[highest_idx]
     return predicted_choice
+
+
+
 
 
     

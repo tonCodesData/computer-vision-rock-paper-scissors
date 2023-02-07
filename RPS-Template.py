@@ -15,6 +15,10 @@ while True:
     cv2.imshow('frame', frame)
     # Press q to close the window
     print(prediction)
+    ind = np.unravel_index(np.argmax(prediction, axis=None), prediction.shape)
+    print(ind)
+    print(np.argmax(prediction))
+    print(prediction[ind])
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
