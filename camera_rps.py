@@ -156,16 +156,18 @@ def play():
     computer_wins = 0 
     user_wins = 0 
     tie = 0
-    while computer_wins != 3 and user_wins != 3: 
+    rounds_played = 0
+    while computer_wins != 3 and user_wins != 3 and rounds_played != 5: 
         print(f"computer won : {computer_wins}")
         print(f"You won : {user_wins}")
         print(f"Ties : {tie}")
+        print(f"Rounds played : {rounds_played}")
         user_choice = get_prediction()
         print(f"you chose {user_choice}")
         computer_choice = get_computer_choice()
         print(f"computer chose {computer_choice}")
         winner = get_winner(computer_choice, user_choice)
-        
+        rounds_played += 1
         if winner == "computer":
             print("computer wins")
             computer_wins += 1
@@ -179,7 +181,8 @@ def play():
     print(f"computer won : {computer_wins}")
     print(f"You won : {user_wins}")
     print(f"Ties : {tie}")
-    
+    print(f"Rounds played : {rounds_played}")
+
     results = {"You lost" : computer_wins, "You won!" : user_wins}
     max_win = 0
     final_winner = ""
@@ -189,8 +192,12 @@ def play():
             print(max_win)
             final_winner = key
             print(final_winner)
-    print(f"Winner of the game is : {final_winner}")
-    return final_winner
+    if rounds_played == 5:
+        print("Game over")
+        print(f"Winner of the game is : {final_winner}")
+    else:
+        print(f"Winner of the game is : {final_winner}")
+        return final_winner
 
 play()
 
