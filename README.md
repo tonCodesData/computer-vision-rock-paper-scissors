@@ -33,7 +33,13 @@ Inside the function, it calls all the other three functions created so far (get_
 
 - I picked the class with the highest probability, given one image at a time. 
 
-- Next, I coded the game so that when you play the game, a count down to zero from three is shown, and at that point you show your hand. I utilised the function time.time() to get how much time has passed since the script started. 
+- Next, I coded the game so that when you play the game, a count down to zero from three is shown. The code for that is as followed:
+![countdown_display.JPG](D:\AiCore\scenario_3\computer-vision-rock-paper-scissors\countdown_display.JPG)
+
+
+- and at that point you show your hand. 
+
+I utilised the function time.time() to get how much time has passed since the script started. 
 
 - I defined at least two variables to keep track of the score of the computer and the user. Name them computer_wins and user_wins respectively.
 
