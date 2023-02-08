@@ -42,3 +42,11 @@ Inside the function, it calls all the other three functions created so far (get_
 - In this case, you need to add that countdown. An important thing to remember is that you can't use the sleep function because it will stop the script, and during that time, the camera will not be able to capture the input.
 
 - Use the function time.time() to get how much time has passed since the script started. Print, for example, "you chose rock" in the terminal when the countdown gets to zero.
+
+- The game should be repeated until either the computer or the user wins three rounds.
+
+- Feel free to code the logic as you want, but make sure you defined at least two variables to keep track of the score of the computer and the user. Name them computer_wins and user_wins respectively.
+
+- Quick tip here: You shouln't use a while loop inside the main while loop (the one capturing and showing your image). The reason behind it is that, when you are inside the nested loop, the code in the main while loop won't run, and hence, the camera won't show anything.
+
+- You should have a condition that checks if the computer or user wins or if the game is over. It can be either comparing both computer_wins and user_wins reached 3 or checking that rounds_played is 5

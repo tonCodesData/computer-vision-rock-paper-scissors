@@ -2,6 +2,7 @@ import cv2
 from keras.models import load_model
 import numpy as np
 import time
+import random
 
 def get_prediction():
     # returns output of the model created earlier
@@ -104,10 +105,95 @@ def get_prediction():
     # ind = np.unravel_index(np.argmax(prediction, axis=None), prediction.shape)
     # print(ind)
     highest_idx = np.argmax(prediction) 
-    print(highest_idx)
+    # print(highest_idx)
     # print(prediction[ind])
     choices = ["Rock", "Paper", "Scissors", "Nothing"]
     predicted_choice = choices[highest_idx]
+    #print(predicted_choice)
     return predicted_choice
 
-print(get_prediction())
+def get_computer_choice(): 
+    options = ["Rock", "Paper", "Scissors"]
+    computer_choice = random.choice(options)
+    return computer_choice
+
+def get_winner(computer_choice, user_choice): 
+    winner = ""
+    if computer_choice == "Rock":
+        if user_choice == "Rock":
+            # print("It is a tie!")
+            winner = "tie"
+        elif user_choice == "Paper":
+            # print("You won!")
+            winner = "you"
+        else: 
+            #print("You lost")
+            winner = "computer"
+    elif computer_choice == "Paper": 
+        if user_choice == "Rock":
+            #print("You lost")
+            winner = "computer"
+        elif user_choice == "Paper":
+            #print("It is a tie!")
+            winner = "tie"
+        else: 
+            #print("You won!")
+            winner = "user"
+    else: 
+        if user_choice == "Rock":
+            # print("You won!")
+            winner = "user"
+        elif user_choice == "Paper":
+            # print("You lost")
+            winner = "computer"
+        else: 
+            #print("It is a tie!")
+            winner = "tie"
+
+    return winner
+    
+def play():
+    computer_wins = 0 
+    user_wins = 0 
+    tie = 0
+    while computer_wins != 3 and user_wins != 3: 
+        print(f"computer won : {computer_wins}")
+        print(f"You won : {user_wins}")
+        print(f"Ties : {tie}")
+        user_choice = get_prediction()
+        print(f"you chose {user_choice}")
+        computer_choice = get_computer_choice()
+        print(f"computer chose {computer_choice}")
+        winner = get_winner(computer_choice, user_choice)
+        
+        if winner == "computer":
+            print("computer wins")
+            computer_wins += 1
+        elif winner == "user": 
+            print("user wins")
+            user_wins += 1
+        else:
+            print("It's a tie")
+            tie+= 1
+
+    print(f"computer won : {computer_wins}")
+    print(f"You won : {user_wins}")
+    print(f"Ties : {tie}")
+    
+    results = {"You lost" : computer_wins, "You won!" : user_wins}
+    max_win = 0
+    final_winner = ""
+    for key, value in results.items(): 
+        if value > max_win: 
+            max_win = value
+            print(max_win)
+            final_winner = key
+            print(final_winner)
+    print(f"Winner of the game is : {final_winner}")
+    return final_winner
+
+play()
+
+# cd scenario_3/computer-vision-rock-paper-scissors
+# conda activate vision
+# python camera_rps.py
