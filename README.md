@@ -36,3 +36,9 @@ Inside the function, it calls all the other three functions created so far (get_
 - You need to pick the class with the highest probability. So, for example, assuming you trained the model in this order: "Rock", "Paper", "Scissors", and "Nothing", if the first element of the list is 0.8, the second element is 0.1, the third element is 0.05, and the fourth element is 0.05, then, the model predicts that you showed "Rock" to the camera with a confidence of 0.8.
 
 - The model can make many predictions at once if given many images. In your case you only give it one image at a time. That means that the first element in the list returned from the model is a list of probabilities for the four different classes. Print the response of the model if you are unclear of this.
+
+- In the previous task, the script reads the input from the camera and then compares it with the computer's choice without stopping. However, when you play a regular game, you usually count down to zero, and at that point you show your hand.
+
+- In this case, you need to add that countdown. An important thing to remember is that you can't use the sleep function because it will stop the script, and during that time, the camera will not be able to capture the input.
+
+- Use the function time.time() to get how much time has passed since the script started. Print, for example, "you chose rock" in the terminal when the countdown gets to zero.
