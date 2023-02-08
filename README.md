@@ -34,6 +34,7 @@ Inside the function, it calls all the other three functions created so far (get_
 - I picked the class with the highest probability, given one image at a time. 
 
 - Next, I coded the game so that when you play the game, a count down to zero from three is shown. The code for that is as followed:
+
 ![countdown_display.JPG](D:\AiCore\scenario_3\computer-vision-rock-paper-scissors\countdown_display.JPG)
 
 
