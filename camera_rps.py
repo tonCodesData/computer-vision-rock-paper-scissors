@@ -194,9 +194,8 @@ def play():
             print(final_winner)
     if rounds_played == 5:
         print("Game over")
-        print(f"Winner of the game is : {final_winner}")
     else:
-        print(f"Winner of the game is : {final_winner}")
+        print(f"{final_winner}")
         return final_winner
 
 play()
